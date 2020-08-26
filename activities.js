@@ -24,7 +24,7 @@ $(document).ready(function () {
   $("#searchBtn").on("click", function (event) {
     // Preventing the button from trying to submit the form
     event.preventDefault();
-    console.log("here are words");
+    console.log(moment().format());
     // Storing the city name
     var city = $("#searchTxt").val().trim();
     seatGeek(city);
@@ -38,7 +38,7 @@ function renderActivities(short_title, newVariable, perImage) {
 //   p.text(short_title);
   div.html(`
 	<p>${short_title}</p>
-	<p>${newVariable}</p>
+	<p>${moment(newVariable).format("LLLL")}</p>
 	<img src="${perImage}"></img>
   `);
 
