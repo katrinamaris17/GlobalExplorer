@@ -4,9 +4,41 @@
 
 #map {
     height: 300px;
+    margin-top: 5px;
 }
 
 .cityPhoto {
     height: 300px;
-    width: 500px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.activities {
+    padding: 5px;
+    margin: 5px;
+    background-color: powderblue;
+}
+
+#activImg{
+    margin-left: 10px;
+}
+
+#concertImg {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+@media screen and (max-width: 992px) {
+    #activImg {
+        width: 100%;
+        /* height: 60%; */
+        margin-left: 0px;
+    }
+    .activities {
+        width: 100%;
+    }
+    #concertImg {
+        width: 100%;
+    }
 }

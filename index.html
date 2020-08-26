@@ -1,106 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Global Explorer</title>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
     <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
     <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <nav class="navbar bg-dark">
-        <span class="navbar-brand mb-0 text-light h1">Welcome to Global Explorer!</span>
+      <span class="navbar-brand mb-0 text-light h1"
+        >Welcome to Global Explorer!</span
+      > <img src="assets/globalexplorer.png"></img>
     </nav>
     <!-- Main Contents -->
-    <br>
+    <br />
     <!-- Search, Maps, Weather Section -->
     <div class="container">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm">
-                        <div class="form-container">
-                            <form class="form-inline mr-auto" id="city-form">
-                                <input class="form-control mr-sm-2" id="searchTxt" input type="text"
-                                    placeholder="Enter a place here" aria-label="Search">
-                                <button class="btn blue-gradient btn-rounded btn-sm my-0" id="searchBtn"
-                                    type="submit">Search</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-">
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="localTime"></div>
-                        <div class="temperature"></div>
-                        <div class="humidity"></div>
-                        <div class="currentConditions"></div>
-                        <div class="weatherIcon"></div>
-                    </div>
-                </div>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+              <div class="form-container">
+                <form class="form-inline mr-auto" id="city-form">
+                  <input
+                    class="form-control mr-sm-2"
+                    id="searchTxt"
+                    input
+                    type="text"
+                    placeholder="Enter a place here"
+                    aria-label="Search"
+                  />
+                  <button
+                    class="btn blue-gradient btn-rounded btn-sm my-0"
+                    id="searchBtn"
+                    type="submit"
+                  >
+                    Search
+                  </button>
+                </form>
+              </div>
             </div>
-            <br>
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div id="map"></div>
-                    </div>
-                    <div class="col">
-                        <div class="photos"></div>
-                    </div>
-                </div>
+            <div class="col-"></div>
+            <div class="col-sm-4">
+              <div class="localTime"></div>
+              <div class="temperature"></div>
+              <div class="humidity"></div>
+              <div class="currentConditions"></div>
+              <div class="weatherIcon"></div>
             </div>
-            <br>
+          </div>
         </div>
+        <br />
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <div id="map"></div>
+            </div>
+            <div class="col-sm-6">
+              <div class="photos"></div>
+            </div>
+          </div>
+        </div>
+        <br />
+      </div>
     </div>
-    <br>
-    <div class="jumbotron jumbotron-fluid">
+    <br/>
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid">
+          <h2><center>Local Events</center></h2><br>
         <div class="container" id="searchResults">
-            <h2 class="display-4">Fluid jumbotron</h2>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            <img src="assets/concert.jpg" id="concertImg" alt="random concert"></img>
+          <div class="row">
+            <div class="col-sm">
+              <div class="form-container">
+                <p></p>
+              </div>
+            </div>
         </div>
+      </div>
     </div>
-
-
     <!-- Footer -->
     <footer class="page-footer font-small special-color-dark pt-4">
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2020 Copyright: Global Explorer</div>
-        <!-- Copyright -->
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">
+        © 2020 Copyright: Global Explorer
+      </div>
+      <!-- Copyright -->
     </footer>
     <!-- Footer -->
 
     <!-- Google Maps -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlmutJnwSagTY5KyY3OV0fEOmGBBUoFtw&libraries=places"
-        defer></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlmutJnwSagTY5KyY3OV0fEOmGBBUoFtw&libraries=places"
+      defer
+    ></script>
     <!-- JQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js">
-    </script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"
+    ></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"
+    ></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js">
-    </script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"
+    ></script>
     <!-- Moments.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <!-- Local -->
     <script src="app.js"></script>
-    <script src="activities.js"></script>
-
-
-
-</body>
-
+    <script src="assets/activities.js"></script>
+  </body>
 </html>
