@@ -1,3 +1,12 @@
+.container, .jumbotron {
+    background-color: steelblue;
+}
+
 #map {
-    height: 200px;
+    height: 300px;
+}
+
+.cityPhoto {
+    height: 300px;
+    width: 500px;
 }

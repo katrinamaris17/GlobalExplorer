@@ -1,19 +1,49 @@
 $(document).ready(function () {
+    var input = document.getElementById('searchTxt');
+    var searchTxt = new google.maps.places.Autocomplete(input, {
+        types: ['(cities)']
+    });
     let infowindow = new google.maps.InfoWindow();
     let map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 15
+        zoom: 17
     });
+
+    // Weather API
+    var APIkey = 'fd37870e3efc4ef4cbd12f30d7ae76f2';
 
     // Setting Current Date
     $("#currentDate").text(moment().format('MMMM Do YYYY'));
-
     // Create an event listener to the searchTxt:
     $("#searchBtn").click(function (event) {
         event.preventDefault();
-        photo()
-        var searchTxt = $('#searchTxt').val();
+        // photo()
+    var searchTxt = $('#searchTxt').val();
+    $(".localTime").text(moment().format('LLLL'));
+    
+    
 
-        console.log(searchTxt);
+    $.ajax({
+        url: `https://api.openweathermap.org/data/2.5/weather?q=${searchTxt}&appid=${APIkey}&units=imperial`,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response);
+        var temperature = response.main.temp;
+        var humidity = response.main.humidity;
+        var weatherDescription = response.weather[0].description
+
+        $('.temperature').append('<p>').text(`Temperature: ${temperature} F`)
+        $('.humidity').append('<p>').text(`Humidity: ${humidity}`)
+        $('.currentConditions').append('<p>').text(`Current Conditions: ${weatherDescription}`)
+       
+
+        var iconCode = response.weather[0].icon;
+        var codeUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+        $(".weatherIcon").html("<img src='" + codeUrl + "'>");
+                    
+
+
+    })
+
 
         const request = {
             query: searchTxt,
@@ -24,13 +54,17 @@ $(document).ready(function () {
         service = new google.maps.places.PlacesService(map);
         service.findPlaceFromQuery(request, (results, status) => {
             console.log(results[0].photos[0].getUrl());
+            console.log(results[0]);
             if (status === google.maps.places.PlacesServiceStatus.OK) {
                 for (let i = 0; i < results.length; i++) {
                     createMarker(results[i]);
+                    createPhotoMarker(results[i]);
                 }
 
                 map = map.setCenter(results[0].geometry.location);
             }
+            var photoHolder = $(`<img class='cityPhoto' src='${results[0].photos[0].getUrl()}'>`);
+            $(".photos").append(photoHolder);
         });
 
 
@@ -49,18 +83,20 @@ $(document).ready(function () {
 
     }
 
-    const APIKey = "AIzaSyAlmutJnwSagTY5KyY3OV0fEOmGBBUoFtw"
-
-    function photo() {
-        console.log("inside photo");
-        $.ajax({
-            url: `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Museum%20of%20Contemporary%20Art%20Australia&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=${APIKey}`
-
-        }).then(function (results) {
-            console.log("inside photo", results);
-        }, function (xhr, status, error) {
-            console.log(status, error)
+    function createPhotoMarker(place) {
+        var photos = place.photos;
+        if (!photos) {
+          return;
+        }
+      
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location,
+          title: place.name,
+          icon: photos[0].getUrl({maxWidth: 35, maxHeight: 35})
         });
-    }
+      }
+
+
 
 });
