@@ -13,9 +13,11 @@ $(document).ready(function () {
       for (let i = 0; i < response.events.length; i++) {
         console.log(response.events[i].short_title);
 		var title = response.events[i].short_title;
-		var newVariable = response.events[i].datetime_local;
-		var perImage = response.events[i].performers[0].image;
-        renderActivities(title, newVariable, perImage);
+		var dateTime = response.events[i].datetime_local;
+    var perImage = response.events[i].performers[0].image;
+    var venueName = response.events[i].venue.name;
+    var tickets = response.events[i].url;
+        renderActivities(title, dateTime, perImage, tickets, venueName);
       }
     });
   }
@@ -24,22 +26,34 @@ $(document).ready(function () {
   $("#searchBtn").on("click", function (event) {
     // Preventing the button from trying to submit the form
     event.preventDefault();
-    console.log("here are words");
+    console.log(moment().format());
     // Storing the city name
     var city = $("#searchTxt").val().trim();
     seatGeek(city);
   });
 });
 //short title AND event come from the array in dev
-function renderActivities(short_title, newVariable, perImage) {
+function renderActivities(short_title, dateTime, perImage, tickets, venueName) {
   const div = $("<div>");
 //   const p = $("<p>");
   
 //   p.text(short_title);
   div.html(`
-	<p>${short_title}</p>
-	<p>${newVariable}</p>
-	<img src="${perImage}"></img>
+	<div class="row">
+  <div class="col-sm">
+      <div class="form-container">
+      <img src="${perImage}" id="activImg" alt="${short_title}"></img>
+      </div>
+  </div>
+  <div class="col-sm activities">
+      <h2>${short_title}</h2>
+      <h5>${moment(dateTime).format("LLLL")}</h5>
+      <h5>${venueName}</h5><br><br>
+      <a href="${tickets}">Buy Tickets Here</a>
+  </div>
+</div>
+<br>
+<br>
   `);
 
   $("#searchResults").prepend(div);
