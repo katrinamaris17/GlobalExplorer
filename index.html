@@ -18,24 +18,69 @@
 
 <body>
     <nav class="navbar bg-dark">
-        <span class="navbar-brand mb-0 text-light h1">Places</span>
+        <span class="navbar-brand mb-0 text-light h1">Welcome to Global Explorer!</span>
     </nav>
-    <!-- Container for Main Content -->
+    <!-- Main Contents -->
     <br>
-    <form class="form-inline mr-auto">
-        <input class="form-control mr-sm-2" id="searchTxt" type="text" placeholder="Enter a place here"
-            aria-label="Search">
-        <button class="btn blue-gradient btn-rounded btn-sm my-0" id="searchBtn" type="submit">Search</button>
-    </form>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <div id="map"></div>
+    <!-- Search, Maps, Weather Section -->
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-container">
+                            <form class="form-inline mr-auto" id="city-form">
+                                <input class="form-control mr-sm-2" id="searchTxt" input type="text"
+                                    placeholder="Enter a place here" aria-label="Search">
+                                <button class="btn blue-gradient btn-rounded btn-sm my-0" id="searchBtn"
+                                    type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="localTime"></div>
+                        <div class="temperature"></div>
+                        <div class="humidity"></div>
+                        <div class="currentConditions"></div>
+                        <div class="weatherIcon"></div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div id="map"></div>
+                    </div>
+                    <div class="col">
+                        <div class="photos"></div>
+                    </div>
+                </div>
+            </div>
+            <br>
         </div>
     </div>
     <br>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container" id="searchResults">
+            <h2 class="display-4">Fluid jumbotron</h2>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="page-footer font-small special-color-dark pt-4">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2020 Copyright: Global Explorer</div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
     <!-- Google Maps -->
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlmutJnwSagTY5KyY3OV0fEOmGBBUoFtw&libraries=places&v=weekly"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlmutJnwSagTY5KyY3OV0fEOmGBBUoFtw&libraries=places"
         defer></script>
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -52,6 +97,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <!-- Local -->
     <script src="app.js"></script>
+    <script src="script.js"></script>
 
 
 
