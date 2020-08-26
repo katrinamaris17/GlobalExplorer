@@ -36,13 +36,14 @@
 
 .my-custom-scrollbar {
   position: relative;
-  /* height: 400px; */
+  height: 400px;
   overflow: auto;
 }
-/* .table-wrapper-scroll-y {
+
+.table-wrapper-scroll-y {
   display: block;
   align-self: center;
-} */
+}
 
 .card {
   padding: 5%;

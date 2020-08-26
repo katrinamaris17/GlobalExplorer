@@ -28,7 +28,7 @@ $(document).ready(function () {
     // pull the data
     $.ajax(settings).done(function (response) {
       console.log(response);
-      $("#searchResults").empty();
+      $("#searchFoodResults").empty();
       for (let i = 0; i < response.data.length; i++) {
         console.log(response.data[i].name);
         renderRestaurant(response.data[i].name, response.data[i].rating);
@@ -44,7 +44,7 @@ $(document).ready(function () {
     p.text(name);
     pRating.text(rating);
     div.append(p, pRating);
-    $("#searchResults").prepend(div);
+    $("#searchFoodResults").prepend(div);
   }
 });
 
