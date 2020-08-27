@@ -1,0 +1,53 @@
+.navbar {
+  text-align: center;
+}
+
+.navbar-brand {
+  text-align: center;
+}
+
+.fab {
+  align-items: center;
+}
+
+.input-group {
+  margin: 2%;
+}
+
+.list-group {
+  padding: 3%;
+}
+
+.col {
+  background-color: #f5f5f5;
+  margin: 10px;
+}
+
+.touristFavorites {
+  padding: 5%;
+}
+
+.list-group {
+  /* max-height: 300px;
+  margin-bottom: 10px; */
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.my-custom-scrollbar {
+  position: relative;
+  height: 400px;
+  overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+  display: block;
+  align-self: center;
+}
+
+.card {
+  padding: 5%;
+  align-self: center;
+  margin: 5%;
+  height: 500px;
+}
