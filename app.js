@@ -63,7 +63,9 @@ $(document).ready(function () {
 
                 map = map.setCenter(results[0].geometry.location);
             }
+
             var photoHolder = $(`<img class='cityPhoto' src='${results[0].photos[0].getUrl()}'>`);
+            console.log("adding photo");
             $(".photos").append(photoHolder);
         });
 

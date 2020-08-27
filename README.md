@@ -51,11 +51,11 @@ The following image demonstrates the application functionality:
 
 ###Final Product Demo:
 
-![day planner demo](./Assets/search-demo.gif)
+![search-demo](Assets/search-demo.gif)
 
-![day planner demo](./Assets/events-demo.gif)
+![events-demo](Assets/events-demo.gif)
 
-![final product screenshot](./Assets/final-product.png)
+![final product screenshot](Assets/final-product.png)
 
 
 
