@@ -49,11 +49,13 @@ Overall, the project provided a great learning experience for everyone in our te
 
 The following image demonstrates the application functionality:
 
-![final product screenshot](./Assets/Finalproduct.png)
-
 ###Final Product Demo:
-![day planner demo](./Assets/mapsge.gif)
-![day planner demo](./Assets/events.gif)
+
+![day planner demo](./Assets/search-demo.gif)
+
+![day planner demo](./Assets/events-demo.gif)
+
+![final product screenshot](./Assets/final-product.png)
 
 
 
