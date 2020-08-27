@@ -17,32 +17,32 @@ $(document).ready(function () {
     $("#searchBtn").click(function (event) {
         event.preventDefault();
         // photo()
-    var searchTxt = $('#searchTxt').val();
-    $(".localTime").text(moment().format('LLLL'));
-    
-    
-
-    $.ajax({
-        url: `https://api.openweathermap.org/data/2.5/weather?q=${searchTxt}&appid=${APIkey}&units=imperial`,
-        method: "GET"
-    }).then(function (response) {
-        console.log(response);
-        var temperature = response.main.temp;
-        var humidity = response.main.humidity;
-        var weatherDescription = response.weather[0].description
-
-        $('.temperature').append('<p>').text(`Temperature: ${temperature} F`)
-        $('.humidity').append('<p>').text(`Humidity: ${humidity}`)
-        $('.currentConditions').append('<p>').text(`Current Conditions: ${weatherDescription}`)
-       
-
-        var iconCode = response.weather[0].icon;
-        var codeUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
-        $(".weatherIcon").html("<img src='" + codeUrl + "'>");
-                    
+        var searchTxt = $('#searchTxt').val();
+        $(".localTime").text(moment().format('LLLL'));
 
 
-    })
+
+        $.ajax({
+            url: `https://api.openweathermap.org/data/2.5/weather?q=${searchTxt}&appid=${APIkey}&units=imperial`,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+            var temperature = response.main.temp;
+            var humidity = response.main.humidity;
+            var weatherDescription = response.weather[0].description
+
+            $('.temperature').append('<p>').text(`Temperature: ${temperature} F`)
+            $('.humidity').append('<p>').text(`Humidity: ${humidity}`)
+            $('.currentConditions').append('<p>').text(`Current Conditions: ${weatherDescription}`)
+
+
+            var iconCode = response.weather[0].icon;
+            var codeUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+            $(".weatherIcon").html("<img src='" + codeUrl + "'>");
+
+
+
+        })
 
 
         const request = {
@@ -86,16 +86,19 @@ $(document).ready(function () {
     function createPhotoMarker(place) {
         var photos = place.photos;
         if (!photos) {
-          return;
+            return;
         }
-      
+
         var marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location,
-          title: place.name,
-          icon: photos[0].getUrl({maxWidth: 35, maxHeight: 35})
+            map: map,
+            position: place.geometry.location,
+            title: place.name,
+            icon: photos[0].getUrl({
+                maxWidth: 35,
+                maxHeight: 35
+            })
         });
-      }
+    }
 
 
 

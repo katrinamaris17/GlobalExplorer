@@ -8,15 +8,15 @@ $(document).ready(function () {
       method: "GET",
     }).then(function (response) {
       // Printing the entire object to console
-	  console.log(response);
-	  $("#searchResults").empty();
+      console.log(response);
+      $("#searchResults").empty();
       for (let i = 0; i < response.events.length; i++) {
         console.log(response.events[i].short_title);
-		var title = response.events[i].short_title;
-		var dateTime = response.events[i].datetime_local;
-    var perImage = response.events[i].performers[0].image;
-    var venueName = response.events[i].venue.name;
-    var tickets = response.events[i].url;
+        var title = response.events[i].short_title;
+        var dateTime = response.events[i].datetime_local;
+        var perImage = response.events[i].performers[0].image;
+        var venueName = response.events[i].venue.name;
+        var tickets = response.events[i].url;
         renderActivities(title, dateTime, perImage, tickets, venueName);
       }
     });
@@ -35,9 +35,9 @@ $(document).ready(function () {
 //short title AND event come from the array in dev
 function renderActivities(short_title, dateTime, perImage, tickets, venueName) {
   const div = $("<div>");
-//   const p = $("<p>");
-  
-//   p.text(short_title);
+  //   const p = $("<p>");
+
+  //   p.text(short_title);
   div.html(`
 	<div class="row">
   <div class="col-sm">
